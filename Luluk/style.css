@@ -1,0 +1,175 @@
+
+    /* Luluk Mufida
+    TI-2C */
+
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: inline;
+}
+nav{
+    width: 100%;
+    background-color:  PapayaWhip;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    height: 50px;
+    background-size: cover;
+    background-position: center;
+}
+header img{
+    margin: 5px;
+    margin-left: 20px;
+
+}
+ul {
+    float: right;
+    list-style-type: none;
+    margin-top: 10px;
+    color: blue;
+}
+
+ul li {
+    font-weight: bold;
+    display: inline-block;
+    text-decoration: none;
+    color: #644cd4;
+    padding: 5px 20px;
+    transition: 0.6s;
+}
+
+header a:hover {
+    background-color: lightskyblue;
+    color: white;
+}
+.background {
+    font-size: 20px;
+    padding: 60px;
+    text-align: center;
+    color: white;
+    background-image: url("img/background.png");
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-text {
+    background-color:Salmon;
+    color: rgb(0,0,0);
+    top: 20%;
+    left: 50%;
+    z-index: 2;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 5px solid PapayaWhip;
+}
+main {
+    padding: 20px;
+    overflow: auto;
+}
+
+#content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.card {
+    box-shadow: 1px 4px 8px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+h2 {
+   color: #cc1b1b
+}
+ 
+h3 {
+   color: #cc1b1b
+}   
+
+.menu-makanan {
+    width: 24%;
+    background-color: WhiteSmoke;
+}
+.menu-makanan-image {
+    width: 100%;
+    height: 50%;
+}
+
+h1 {
+    font-weight: bold;
+    text-align: center;
+}
+.profile {
+    width: 100%;
+}
+
+.profile-image{
+    width: 96%;
+    margin: 20px;
+}
+
+.profil-kk{
+    text-align: center;
+}
+input[type=text], input[type=number], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 2px;
+    box-sizing: border-box;
+    border: 2px solid #85311b;
+    border-radius: 4px;
+}
+
+input[type=radio] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.button {
+    background-color: #cc1b1b;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 4px;
+    float: left;
+}
+.link-pesan{
+    float: right;
+}
+
+footer {
+    background-color: #333;
+    padding: 0.5px;
+}
+
+footer .copy {
+    color: #eaeaea;
+    text-align: center;
+    font-size: 12px;
+    height: 15px;
+}
+
+h5 {
+    color: bisque;
+    text-align: center;
+}

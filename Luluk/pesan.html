@@ -1,0 +1,132 @@
+<!-- 
+    Luluk Mufida
+    TI-2C 
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pesan</title>
+        <link href="style.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous">
+        </script>
+        <script>
+            $(function(){
+                $("#header").load("header.html"); 
+                $("#footer").load("footer.html"); 
+            });
+        </script>
+    </head>
+    <body>
+        <main> 
+            <div id="content">
+                <article class="profile card" style="background-color: PapayaWhip;">
+                    <header>
+                        <h1>Masukkan Pesanan</h1>
+                    </header>
+                    <label for="id_pembeli">ID Pembeli</label>
+                    <input type="text" id="id_pembeli" name="id_pembeli" required>
+                    <label for="nama_pembeli">Nama Pembeli</label>
+                    <input type="text" id="nama_pembeli" name="nama_pembeli" required>
+                    <label for="status_pembeli">Status Pembeli</label><br>
+                    <input type="radio" id="status_pembeli" name="status_pembeli" value="Member" required>&nbsp;<label>Member</label>
+                    <input type="radio" id="status_pembeli" name="status_pembeli" value="Non Member" required>&nbsp; <label>Non Member</label><br>
+                    <label for="nama_makanan">Nama Makanan</label>
+                    <select id="nama_makanan" name="nama_makanan">
+                        <option value="Sate Ayam">Bakso Beranak - Rp 25.000</option>
+                        <option value="Sate Ayam">Bakso Keju - Rp 15.000</option>
+                        <option value="Sate Ayam">Bakso Urat - Rp 10.000</option>
+                        <option value="Sate Ayam">Bakso Mercon - Rp 15.000</option>
+                        <option value="Sate Ayam">Sate Ayam - Rp 15.000</option>
+                        <option value="Sate Ayam">Sate Kambing - Rp 20.000</option>
+                        <option value="Sate Ayam">Soto Ayam - Rp 15.000</option>
+                        <option value="Ayam Bakar">Soto Daging - Rp 20.000</option>
+                        <option value="Sate Kambing">Gulai - Rp 20.000</option>
+                        <option value="Kambing Hidup">Rawon - Rp 20.000</option>
+                        <option value="Kambing Hidup">Pecel - Rp 15.000</option>
+                        <option value="Kambing Hidup">Krengsengan - Rp 15.000</option>
+                    </select>
+                    <label for="jumlah">Jumlah</label>
+                    <input type="number" id="jumlah" name="jumlah" required>
+                    <button type="submit" id="submit" name="submit" class="button" onclick="form_process()">Pesan Sekarang</button> 
+                    <a href="home.html" class="link-pesan">Kembali ke Halaman Utama</a>     
+                    <div id="hasil_submit"></div>
+                </article>
+            </div>
+        </main>
+        <footer>
+            <p>Rumah Makan Semongko &copy; 2020, Farel Putra Hidayat</p>
+        </footer>
+        <script>
+            var menu = ["Bakso Beranak","Bakso Keju","Bakso Urat", "Bakso Mercon","Sate Ayam", "Sate Kambing","Soto Ayam", "Soto Daging", "Gulai", "Rawon", "Pecel", "Krengsengan"];
+            
+            function form_process() {
+                var harga_makanan = 0;
+                var diskon = 0;
+                var id_pembeli = document.getElementById('id_pembeli').value;
+                var nama_pembeli= document.getElementById('nama_pembeli').value;
+                var status_pembeli = document.querySelector('input[name = status_pembeli]:checked').value;
+                var nama_makanan = document.getElementById('nama_makanan').value;
+                var jumlah = document.getElementById('jumlah').value;
+
+                if (nama_makanan == "Bakso Beranak") {
+                harga_makanan = 25000;
+            } else if (nama_makanan == "Bakso Keju") {
+                harga_makanan = 15000;
+            } else if (nama_makanan == "Bakso Urat") {
+                harga_makanan = 10000;
+            } else if (nama_makanan == "Bakso Mercon") {
+                harga_makanan = 15000;
+            } else if (nama_makanan == "Sate Ayam") {
+                harga_makanan = 15000;
+            } else if (nama_makanan == "Sate Kambing") {
+                harga_makanan = 20000;
+            } else if (nama_makanan == "Soto Ayam") {
+                harga_makanan = 15000;
+            } else if (nama_makanan == "Soto Daging") {
+                harga_makanan = 20000;
+            } else if (nama_makanan == "Gulai") {
+                harga_makanan = 20000;
+            } else if (nama_makanan == "Rawon") {
+                harga_makanan = 20000;
+            } else if (nama_makanan == "Pecel") {
+                harga_makanan = 15000;
+            } else if (nama_makanan == "Krengsengan") {
+                harga_makanan = 15000;
+            } else {
+                harga_makanan = 0;
+            }
+
+                if (status_pembeli == 'Member') {
+                    if (jumlah == 1) {
+                        diskon = harga_makanan * 0.05;
+                    } else if (jumlah <= 3) {
+                        diskon = harga_makanan * 0.07;
+                    } else {
+                        diskon = harga_makanan * 0.1;
+                    }
+                } else if(status_pembeli == 'Non Member'){
+                    if (jumlah <= 3) {
+                        diskon = 0;
+                    } else if (jumlah <= 5) {
+                        diskon = (harga_makanan * jumlah) * 0.05;
+                    } else {
+                        diskon = harga_makanan * 0.05;
+                    }
+                }
+
+                total = (harga_makanan * jumlah) - diskon;
+                var par = document.createElement("h1")
+                var node = document.createTextNode(
+                    "TOTAL BAYAR : " + total
+                )
+                par.appendChild(node)
+                document.getElementById("hasil_submit").appendChild(par)
+            }
+        </script>
+    <body>
+<html>
